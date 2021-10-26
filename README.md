@@ -41,3 +41,17 @@ Request Body:
 `limit`: Number of file rows will be processed
 
 `platform` : Name of platform you want to direct integrate with your calls. `AWS` or `SFDC`
+
+###  CSV Example File
+
+| RootProductCombinations | Childs |
+| ----------------------- | ------ |
+| Football | |
+| Sport | |
+| Cinema | |
+| Entertainment | |
+| Entertainment\|EntertainmentPlus | |
+| Entertainment\|EntertainmentPlus | "{'EntertainmentPlus':['Netflix']}" |
+| Entertainment\|EntertainmentPlus\|Sport | "{'EntertainmentPlus':['Netflix']}" |
+| Entertainment\|EntertainmentPlus\|Sport\|Cinema | "{'EntertainmentPlus':['Netflix']}" |
+| Entertainment\|EntertainmentPlus\|Sport\|Cinema\|PlatformIP | "{'EntertainmentPlus':['Netflix']}" |

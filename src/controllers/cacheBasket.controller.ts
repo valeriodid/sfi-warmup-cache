@@ -186,7 +186,6 @@ async function makeBlockRequests(getOfferDetailsRootOffers:any,productCodesRows:
             var getOfferDetailsRootOffersCopy = _.cloneDeep(getOfferDetailsRootOffers);
             let basketPayload = createBasketPayload(getOfferDetailsRootOffersCopy,productCodeRow,null);
             let nameAPI = 'Basket';
-
             
             makeRequest('POST',basketEndpoint,basketPayload,nameAPI,productCodeRow.productCodes,productCodeRow.childProductCodes).then(function(resData){
                 if(resData.multiTransactionKey != ''){
@@ -317,13 +316,13 @@ function createBasketPayload(getOfferDetailsRootOffers:any,productCodeRow:any,mu
 
         basketPayload = {
             "basketAction": "AddAfterConfig",
-            "productConfig": productConfigArray[0]
+            "productConfig": productConfigArray
         }
     }
     else{
         basketPayload = {
             "basketAction": "AddWithNoConfig",
-            "offer": arrayProductList[0]
+            "offer": arrayProductList
         }
     }
 
@@ -566,19 +565,11 @@ async function makeRequest(method:string,url:string,payload:any,nameAPI:string,p
 }
 
 function readCSVRows(catalogCode:string, records:any[]){
+    let getOfferDetailsSet = new Set();
     let getOfferDetailsRow:any[] = [];
     let basketRows:any[] = [];
     let baseEndPoint = platform == PLATFORM_SFDC ? SFDC_GETOFFERS_URL : AWS_CATALOGS_URL; 
     records.forEach(element => {
-        if(element['Type'] == 'GetOfferDetails'){
-            let obj:any = {
-                type: 'GetOfferDetails',
-                url: `${baseEndPoint}/${catalogCode}/offers/${element['RootOffer']}`,
-                productCode: element['RootOffer']
-            }
-            getOfferDetailsRow.push(obj);
-        }
-        if(element['Type'] == 'Basket'){
             let obj:any = {
                 type: 'Basket',
                 url: `${baseEndPoint}/${catalogCode}/basket`,
@@ -586,9 +577,24 @@ function readCSVRows(catalogCode:string, records:any[]){
                 childProductCodes: `${element['Childs']}`,
                 promotionCode: `${element['PromotionCode']}`
             }
+
+            let productCodesArr = (`${element['RootProductCombinations']}`).split('|');
+            productCodesArr.forEach(productCode => {
+                getOfferDetailsSet.add(productCode);
+            });
+
             basketRows.push(obj);
-        }
     });
+
+    getOfferDetailsSet.forEach(productCode => {
+        let obj:any = {
+            type: 'GetOfferDetails',
+            url: `${baseEndPoint}/${catalogCode}/offers/${productCode}`,
+            productCode: productCode
+        }
+        getOfferDetailsRow.push(obj);
+    });
+
     return [getOfferDetailsRow,basketRows];
 }
 

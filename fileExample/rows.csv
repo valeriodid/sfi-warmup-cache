@@ -1,0 +1,11 @@
+RootProductCombinations,Childs,Attributes,PromotionCode
+Football,,,
+Sport,,,
+Cinema,,,
+Kids,,,
+Entertainment,,,
+Entertainment|EntertainmentPlus,,,
+Entertainment|EntertainmentPlus,"{""EntertainmentPlus"":[""Netflix""]}",,
+Entertainment|EntertainmentPlus|Sport,"{""EntertainmentPlus"":[""Netflix""]}",,
+Entertainment|EntertainmentPlus|Sport|Cinema,"{""EntertainmentPlus"":[""Netflix""]}",,
+Entertainment|EntertainmentPlus|Sport|Cinema|PlatformIP,"{""EntertainmentPlus"":[""Netflix""]}",,
