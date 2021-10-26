@@ -1,21 +1,20 @@
 # Warmup-Cache
 
-### `npm i`
-
 Install all the dependencies
+```sh
+$ npm i
+```
 
-### `npm run build`
+Build the app for production to the `build` folder.
+```sh
+$ npm run build
+```
 
-Builds the app for production to the `build` folder.
-
-### `npm start`
-
-Runs the application.
-Open [http://localhost:5000](http://localhost:5000) to view it locally in the browser .
-
-### `nodemon src/server.ts`
-
-The page will reload if you make edits.
+Run the application.
+```sh
+$ npm start
+```
+Open [http://localhost:5000](http://localhost:5000) to view it locally in the browser.
 
 ### WARMUP BASKET API
 warmup BasketAPIs
