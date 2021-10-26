@@ -13,7 +13,7 @@ export const SFDC_USERNAME = process.env.SFDC_USERNAME;
 export const SFDC_PASSWORD = process.env.SFDC_PASSWORD;
 export const SFDC_ORG = process.env.SFDC_ORG;
 export const SFDC_CONTEXT_URL = process.env.SFDC_CONTEXT_URL;
-export const SFDC_GETOFFERS_URL = process.env.SFDC_GETOFFERS_URL;
+export const SFDC_URL = process.env.SFDC_URL;
 
 const prod = ENVIRONMENT === "production";
 

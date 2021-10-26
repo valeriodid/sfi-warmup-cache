@@ -55,3 +55,24 @@ Request Body:
 | Entertainment\|EntertainmentPlus\|Sport | "{'EntertainmentPlus':['Netflix']}" |
 | Entertainment\|EntertainmentPlus\|Sport\|Cinema | "{'EntertainmentPlus':['Netflix']}" |
 | Entertainment\|EntertainmentPlus\|Sport\|Cinema\|PlatformIP | "{'EntertainmentPlus':['Netflix']}" |
+
+### .env File
+
+SFDC Config
+```json
+SFDC_USERNAME={{salesforce_username}}
+SFDC_PASSWORD={{salesforce_psw}}
+SFDC_ORG=login or test
+SFDC_CONTEXT_URL=/vlocity_cmt/v3/context
+SFDC_URL=/vlocity_cmt/v3/catalogs
+```
+
+AWS Config
+```json
+AWS_BASEURL=https://{{api_gateway_host}}/dc/v3
+AWS_CATALOGS_URL=https://{{api_gateway_host}}/dc/v3/catalogs
+AWS_CONTEXT_URL=https://{{api_gateway_host}}/dc/v3/context
+AWS_OAUTH_HOST={{oauth_host}}
+AWS_CLIENT_ID={{clientId}}
+AWS_CLIENT_SECRET={{clientSecret}}
+```

@@ -1,4 +1,4 @@
-import { AWS_CATALOGS_URL, SFDC_GETOFFERS_URL, SFDC_USERNAME, SFDC_PASSWORD } from "../util/secrets";
+import { AWS_CATALOGS_URL, SFDC_URL, SFDC_USERNAME, SFDC_PASSWORD } from "../util/secrets";
 import { PLATFORM_SFDC, PLATFORM_AWS } from "../commons/constants";
 import { csv, createCsvWriter, fs, clc } from "../commons/reportLibraries";
 import { conn, oauthConfig, requestOptions } from "../commons/auth" ;
@@ -568,7 +568,7 @@ function readCSVRows(catalogCode:string, records:any[]){
     let getOfferDetailsSet = new Set();
     let getOfferDetailsRow:any[] = [];
     let basketRows:any[] = [];
-    let baseEndPoint = platform == PLATFORM_SFDC ? SFDC_GETOFFERS_URL : AWS_CATALOGS_URL; 
+    let baseEndPoint = platform == PLATFORM_SFDC ? SFDC_URL : AWS_CATALOGS_URL; 
     records.forEach(element => {
             let obj:any = {
                 type: 'Basket',
