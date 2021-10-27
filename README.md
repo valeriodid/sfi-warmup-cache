@@ -1,6 +1,13 @@
-# Warmup-Cache
+# SFI Digital Warmup Cache Tool
 
-Install all the dependencies
+### Overview
+Digital Commerce Warmup Cache is a procedure which uses the DC standard Basket API in order to warmup all the basket combinations provided by a CSV file passed as an input parameter.
+
+
+### Getting Started
+
+
+Install all the dependencies.
 ```sh
 $ npm i
 ```
@@ -31,15 +38,15 @@ Request Body:
     "platform": "AWS or SFDC"
 }
 ```
-`fileCSV`: Your CSV File
+`fileCSV`: Your CSV File.
 
-`catalogCode`: Catalog Code you will use for the getOffers APIs
+`catalogCode`: Catalog Code you will use for the getOffers APIs.
 
-`concurrentRequests`: Number of concurrent requests will be processed every each block
+`concurrentRequests`: Number of concurrent requests will be processed every each block.
 
-`limit`: Number of file rows will be processed
+`limit`: Number of file rows will be processed.
 
-`platform` : Name of platform you want to direct integrate with your calls. `AWS` or `SFDC`
+`platform` : Name of platform you want to direct integrate with your calls. `AWS` or `SFDC`.
 
 ###  CSV Example File
 
