@@ -1,7 +1,20 @@
 # SFI Digital Warmup Cache Tool
 
 ### Overview
-Digital Commerce Warmup Cache is a procedure which uses the DC standard Basket API in order to warmup all the basket combinations provided by a CSV file passed as an input parameter.
+Digital Commerce Warmup Cache is a procedure which uses the DC standard Basket API in order to initialize the Digital Commerce Cache with all the basket combinations provided by a CSV file passed as an input parameter. The scope of the solution is to decrease the number of Cache Miss when the anonymous Basket APIs are invoked.
+
+### Solution 
+The procedure is built with a Node JS application, which is running into a local server on your local machine. Express JS (web application framework for Node JS) is used to provide the API to initialize the DC Cache.
+
+![alt text](images/SFIWarmupCacheFlow.png "SFI Warmup Cache Flow")
+
+The Warmup Procedure can be launched by any REST Client for API testing (like Postman, Swagger, SoapUI, etc..).
+
+Each products combination defines an AddToBasket API to be invoked. The procedure processes a block of concurrent requests (the concurrent number of the requests is one of the request param of the API).
+
+The Warmup Procedure can be executed by populating directly the Salesforce Warmup Cache, or AWS Redis Cache if you are using the Digital Commerce Tier. Platform can be specified as an input param of the procedure.
+
+At the end of the Warmup Procedure, a Report is created in order to track every single request with related details such as CartContextKey, Delay, Timestamp, Cache Miss or Cache Hit (for AWS).
 
 
 ### Getting Started
