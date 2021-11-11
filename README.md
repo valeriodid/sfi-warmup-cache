@@ -6,7 +6,7 @@ Digital Commerce Warmup Cache is a procedure which uses the DC standard Basket A
 ### Solution 
 The procedure is built with a Node JS application, which is running into a local server on your local machine. Express JS (web application framework for Node JS) is used to provide the API to initialize the DC Cache.
 
-![alt text](images/SFIWarmupCacheFlow.png "SFI Warmup Cache Flow")
+![alt text](images/SFIWarmupCache.png "SFI Warmup Cache Flow")
 
 The Warmup Procedure can be launched by any REST Client for API testing (like Postman, Swagger, SoapUI, etc..).
 
